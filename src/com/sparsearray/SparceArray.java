@@ -1,4 +1,4 @@
-package com.SparseArray;
+package com.sparsearray;
 
 public class SparceArray {
   public static void main(String[] args) {
