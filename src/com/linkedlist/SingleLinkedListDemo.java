@@ -13,6 +13,10 @@ public class SingleLinkedListDemo {
     singleLinkedList.addByOrder(hero2);
     //显示单链表
     singleLinkedList.list();
+    System.out.println("----------------------");
+    HeroNode hero4 = new HeroNode(2, "玉麒麟");
+    singleLinkedList.update(hero4);
+    singleLinkedList.list();
   }
 }
 
@@ -56,6 +60,33 @@ class SingleLinkedList {
     }else{
       heroNode.next = temp.next;
       temp.next = heroNode;
+    }
+  }
+
+  //修改节点的信息，根据no编号来修改
+  public void update(HeroNode newHeroNode){
+    if(head.next == null){
+      System.out.println("链表为空");
+      return;
+    }
+    HeroNode temp = head.next;
+    boolean flag = false;//表示是否找到该节点
+    while(true){
+      if(temp == null){
+        break;//已经遍历完链表
+      }
+      if(temp.no == newHeroNode.no){
+        //找到
+        flag = true;
+        break;
+      }
+      temp = temp.next;
+    }
+    //根据flag判断是否找到
+    if(flag){
+      temp.name = newHeroNode.name;
+    }else{
+      System.out.println("没有这个编号的节点");
     }
   }
 
